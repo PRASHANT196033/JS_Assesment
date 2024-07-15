@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+    <form id="calculatorForm">
+        <label for="num1">Enter first number:</label>
+        <br>
+        <input type="number" id="num1" name="num1" required>
+        <br>
+        <label for="num2">Enter second number:</label>
+        <br>
+        <input type="number" id="num2" name="num2" required>
+        <br>
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+           
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').textContent = "Please enter valid numbers.";
+                return;
+            }
+
+            let multiplication = num1 * num2;
+            let division = num1 / num2;
+
+           
+            document.getElementById('result').innerHTML = `
+                <p>Multiplication: ${num1} * ${num2} = ${multiplication}</p>
+                <p>Division: ${num1} / ${num2} = ${division}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
